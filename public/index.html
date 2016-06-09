@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="mui-0.6.0/css/mui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="static/style.css" rel="stylesheet" type="text/css"/>
+    <script src="mui-0.6.0/js/mui.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script src="static/script.js"></script>
+</head>
+<body>
+<div id="sidedrawer" class="mui--no-user-select">
+    <div id="sidedrawer-brand" class="mui--appbar-line-height">Share.io</div>
+    <div class="mui-divider"></div>
+    <ul>
+        <li>
+            <strong>Category 1</strong>
+            <ul>
+                <li><a href="#11">Item 1</a></li>
+                <li><a href="#12">Item 2</a></li>
+                <li><a href="#13">Item 3</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<header id="header">
+    <div class="mui-appbar mui--appbar-line-height">
+        <div class="mui-container-fluid">
+            <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
+            <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
+            <span class="appbar-brand">Skill Sharing Website</span>
+        </div>
+    </div>
+</header>
+<div id="content-wrapper">
+    <div class="mui--appbar-height"></div>
+    <div class="mui-container-fluid" style="padding-bottom: 32px;">
+        <div class="mui-row=">
+            <div class="mui-col-sm-10 mui-col-sm-offset-1">
+
+                <div class="space-top"></div>
+                <div class="mui-row">
+                    <div class="mui-col-md-10"><h1>Skill sharing</h1></div>
+                    <div class="mui-col-md-2">
+                        <div class="mui-textfield">
+                            <input type="text" id="name">
+                            <label>Name</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-top"></div>
+                <div id="talks" class="mui-panel"></div>
+
+                <div class="space-top"></div>
+                <div class="mui-panel">
+                    <form id="newtalk">
+                        <legend>Submit A Talk</legend>
+                        <div class="mui-textfield">
+                            <input type="text" name="title">
+                            <label>Title</label>
+                        </div>
+                        <div class="mui-textfield">
+                            <textarea name="summary"></textarea>
+                            <label>Summary</label>
+                        </div>
+                        <button class="mui-btn mui-btn--primary" type="submit">Submit</button>
+                        <br>
+                    </form>
+                </div>
+
+
+                <div id="template" style="display: none">
+                    <div class="talk" style="margin-bottom: 32px;">
+                        <span class="mui--divider-right"
+                              style="font-size: 21px; font-weight: bolder;">{{title}}&nbsp;&nbsp;</span>
+                        <span><button type="button" id="del"
+                                      style="vertical-align:super; padding-left:8px; padding-right:8px;"
+                                      class="mui-btn mui-btn--small mui-btn mui-btn--flat mui-btn--danger">
+                            Delete talk
+                        </button></span>
+
+                        <div>by <span class="name" style="font-style: italic;">{{presenter}}</span></div>
+                        <p style="margin: 16px">{{summary}}</p>
+
+                        <div style="border: 1px #bababa dashed; padding: 16px; margin-left: 16px; margin-right: 16px;">
+                            <div class="comments">
+                                <span style="font-weight: bolder; font-size: 16px; color: rgba(0,0,0,0.5);">Comments Area</span>
+                                <div style="height: 8px;"></div>
+                            </div>
+                            <form>
+                                <div class="mui-textfield">
+                                    <input type="text" name="comment" placeholder="Comment"
+                                           style="width:100%; display: block; margin-right: 8px;">
+                                </div>
+                                <button type="submit" class="mui-btn mui-btn--small mui-btn mui-btn--primary"
+                                        style="margin-top:-5px;">Add Comment
+                                </button>
+                            </form>
+                        </div>
+                        <hr style="height: 4px;"/>
+
+                    </div>
+                    <div class="comment">
+                        <span class="name">{{author}}</span>: {{message}}
+                        <hr style="height: 1px; margin-top: 4px; margin-bottom: 4px;"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="mui-container-fluid">
+        <br>
+        © 2016 Made by XuShen with <a href="https://www.muicss.com">MUI</a>
+    </div>
+</footer>
+</body>
+
+<script src="skillsharing_client.js"></script>
+
+</html>
