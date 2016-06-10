@@ -9,21 +9,33 @@
     <link href="mui-0.6.0/css/mui.min.css" rel="stylesheet" type="text/css"/>
     <link href="static/style.css" rel="stylesheet" type="text/css"/>
     <script src="mui-0.6.0/js/mui.min.js"></script>
-    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"></script>
+    <script src="static/jquery-1.8.0.js"></script>
     <script src="static/script.js"></script>
 </head>
-<body>
+<body onload="confirmAdmin()">
 <div id="sidedrawer" class="mui--no-user-select">
-    <div id="sidedrawer-brand" class="mui--appbar-line-height">Share.io</div>
+    <div id="sidedrawer-brand" class="mui--appbar-line-height">Anonymous</div>
     <div class="mui-divider"></div>
     <ul>
         <li>
-            <strong>Category 1</strong>
+            <strong>帖子分类</strong>
             <ul>
-                <li><a href="#11">Item 1</a></li>
-                <li><a href="#12">Item 2</a></li>
-                <li><a href="#13">Item 3</a></li>
+                <li id="quanbu" class="strongson">全部</li>
+                <li id="xianliao" class="strongson">闲聊</li>
+                <li id="yishu" class="strongson">艺术</li>
+                <li id="jisuanji" class="strongson">计算机</li>
+                <li id="wenshi" class="strongson">文史</li>
+                <li id="shuxue" class="strongson">数学</li>
             </ul>
+        </li>
+        <li><a href="#content-wrapper">
+            <strong>回到顶部</strong></a>
+        </li>
+        <li><a href="#SubmitATalk" id="liSubmitNew">
+            <strong>发表新帖子</strong></a>
+        </li>
+        <li><a href="adminLogin.html">
+            <strong>管理员登入</strong></a>
         </li>
     </ul>
 </div>
@@ -32,7 +44,7 @@
         <div class="mui-container-fluid">
             <a class="sidedrawer-toggle mui--visible-xs-inline-block mui--visible-sm-inline-block js-show-sidedrawer">☰</a>
             <a class="sidedrawer-toggle mui--hidden-xs mui--hidden-sm js-hide-sidedrawer">☰</a>
-            <span class="appbar-brand">Skill Sharing Website</span>
+            <span class="appbar-brand">Anonymous论坛</span>
         </div>
     </div>
 </header>
@@ -44,11 +56,11 @@
 
                 <div class="space-top"></div>
                 <div class="mui-row">
-                    <div class="mui-col-md-10"><h1>Skill sharing</h1></div>
+                    <div class="mui-col-md-10"><h1 id="websiteTitle">Anonymous论坛</h1></div>
                     <div class="mui-col-md-2">
-                        <div class="mui-textfield">
+                        <div class="mui-textfield" id="userName">
                             <input type="text" id="name">
-                            <label>Name</label>
+                            <label>马甲</label>
                         </div>
                     </div>
                 </div>
@@ -57,48 +69,60 @@
                 <div id="talks" class="mui-panel"></div>
 
                 <div class="space-top"></div>
-                <div class="mui-panel">
+                <div class="mui-panel" id="SubmitATalk">
                     <form id="newtalk">
-                        <legend>Submit A Talk</legend>
+                        <legend>发表新帖子</legend>
+                        <div class="mui-select">
+                            <select name="talkType">
+                                <option>闲聊</option>
+                                <option>艺术</option>
+                                <option>计算机</option>
+                                <option>文史</option>
+                                <option>数学</option>
+                            </select>
+                            <label>类型</label>
+                        </div>
                         <div class="mui-textfield">
                             <input type="text" name="title">
-                            <label>Title</label>
+                            <label>标题</label>
                         </div>
                         <div class="mui-textfield">
                             <textarea name="summary"></textarea>
-                            <label>Summary</label>
+                            <label>内容</label>
                         </div>
-                        <button class="mui-btn mui-btn--primary" type="submit">Submit</button>
+                        <button class="mui-btn mui-btn--primary" type="submit" id="submitTalk">发表帖子</button>
                         <br>
                     </form>
                 </div>
 
 
                 <div id="template" style="display: none">
-                    <div class="talk" style="margin-bottom: 32px;">
+                    <div class="talk" style="margin-bottom: 16px;">
                         <span class="mui--divider-right"
-                              style="font-size: 21px; font-weight: bolder;">{{title}}&nbsp;&nbsp;</span>
+                              style="font-size: 21px; font-weight: bolder;"><span class="type">[{{type}}]</span>&nbsp;{{title}}&nbsp;&nbsp;</span>
                         <span><button type="button" id="del"
                                       style="vertical-align:super; padding-left:8px; padding-right:8px;"
                                       class="mui-btn mui-btn--small mui-btn mui-btn--flat mui-btn--danger">
-                            Delete talk
+                            删除帖子
                         </button></span>
 
-                        <div>by <span class="name" style="font-style: italic;">{{presenter}}</span></div>
+                        <div class="talkheader">由 <span class="name" style="font-style: italic;">{{presenter}}</span> 发布于 <span
+                                style="font-style: italic; text-decoration: underline;">{{date}}</span><span
+                                class="commentcount"></span></div>
                         <p style="margin: 16px">{{summary}}</p>
 
                         <div style="border: 1px #bababa dashed; padding: 16px; margin-left: 16px; margin-right: 16px;">
                             <div class="comments">
-                                <span style="font-weight: bolder; font-size: 16px; color: rgba(0,0,0,0.5);">Comments Area</span>
-                                <div style="height: 8px;"></div>
+                                <span style="font-weight: bolder; font-size: 16px; color: rgba(0,0,0,0.5);">COMENTS AREA</span>
+                                <div style="height: 8px;" class="count"></div>
                             </div>
                             <form>
                                 <div class="mui-textfield">
-                                    <input type="text" name="comment" placeholder="Comment"
+                                    <input type="text" name="comment" placeholder="编辑评论"
                                            style="width:100%; display: block; margin-right: 8px;">
                                 </div>
                                 <button type="submit" class="mui-btn mui-btn--small mui-btn mui-btn--primary"
-                                        style="margin-top:-5px;">Add Comment
+                                        style="margin-top:-5px;">添加评论
                                 </button>
                             </form>
                         </div>

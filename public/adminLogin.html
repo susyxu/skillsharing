@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="mui-0.6.0/css/mui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="static/style.css" rel="stylesheet" type="text/css"/>
+    <script src="mui-0.6.0/js/mui.min.js"></script>
+    <script src="static/jquery-1.8.0.js"></script>
+    <script src="static/script.js"></script>
+    <script>
+        function to() {
+            var getId = document.getElementById("adminId").value;
+            var getPwd = document.getElementById("adminPwd").value;
+            if (getId === "xushen" && getPwd === "xs") {
+                window.location.href = "index.html?adminflag=" + "tTc3Xq86RerCTLtq";
+                //随机生成16位
+            }
+            else {
+                alert("wrong!");
+            }
+        }
+    </script>
+    <style>
+        .center {
+            text-align: center;
+            padding: 32px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="mui-row">
+    <div class="mui-col-md-4"></div>
+    <div class="mui-col-md-4">
+        <div class="mui-panel" class="center" style="margin-top:30%;">
+            <div class="center">
+                <div class="mui-textfield mui-textfield--float-label" style="margin-right: 16px; margin-left: 16px;">
+                    <input type="text" id="adminId">
+                    <label>用户名</label>
+                </div>
+                <div class="mui-textfield mui-textfield--float-label" style="margin-right: 16px; margin-left: 16px;">
+                    <input type="password" id="adminPwd">
+                    <label>密码</label>
+                </div>
+                <button class="mui-btn mui-btn--large mui-btn mui-btn--raised mui-btn--primary" onclick="to()"
+                        style="margin-top: 16px;">管理员登入
+                </button>
+            </div>
+
+        </div>
+    </div>
+    <div class="mui-col-md-4"></div>
+</div>
+</body>
+</html>

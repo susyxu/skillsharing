@@ -189,3 +189,30 @@ button {
   font-size: 20px;
   color: #fff;
 }
+
+li a{
+  color: rgba(0,0,0,0.87);
+  text-decoration: none;
+}
+li a:hover{
+  color: rgba(0,0,0,0.87);
+  text-decoration: none;
+}
+li a:visited{
+  color: rgba(0,0,0,0.87);
+  text-decoration: none;
+}
+
+.commentcount{
+  color: rgba(0,0,0,0.34);
+  padding-left: 16px;
+}
+
+.strongson{
+  color: #0288D1;
+}
+
+.strongson:hover{
+  color: #0288D1;
+  text-decoration: underline;
+}
