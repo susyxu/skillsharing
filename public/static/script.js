@@ -157,12 +157,31 @@ $(document).ready(
     }
 );
 
+
+//
+$(document).ready(function () {
+    setTimeout(noteFunction, 500);
+});
+
+function noteFunction(){
+    var ArrayTalks = $(".talk");
+    for(var i = 0; i < ArrayTalks.length - 1; i++){
+        var notes = $(ArrayTalks[i]).children("p.allNote").text();
+        console.log(notes);
+    }
+}
+
+function onSubmitButtonClick(){
+
+}
+
+
 // ==========================================================================
 // 检验管理员登入,del按钮的出现
 // ==========================================================================
 var thisURL = document.URL;
 var getval = thisURL.split('?')[1];
-var showval = getval.split("=")[1];
+var showval = getval.split('=')[1];
 function confirmAdmin() {
     $("#del").hide();
     if(showval==="tTc3Xq86RerCTLtq"){

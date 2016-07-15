@@ -11,6 +11,12 @@
     <script src="mui-0.6.0/js/mui.min.js"></script>
     <script src="static/jquery-1.8.0.js"></script>
     <script src="static/script.js"></script>
+    <script src="static/juheweb.com.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $("#tag").tabControl({maxTabCount:10,tabW:80,tabMaxLen:12},"Tags1,Tags2");
+        });
+    </script>
 </head>
 <body onload="confirmAdmin()">
 <div id="sidedrawer" class="mui--no-user-select">
@@ -72,6 +78,7 @@
                 <div class="mui-panel" id="SubmitATalk">
                     <form id="newtalk">
                         <legend>发表新帖子</legend>
+                        <div id="tag"></div>
                         <div class="mui-select">
                             <select name="talkType">
                                 <option>闲聊</option>
@@ -106,9 +113,11 @@
                             删除帖子
                         </button></span>
 
-                        <div class="talkheader">由 <span class="name" style="font-style: italic;">{{presenter}}</span> 发布于 <span
-                                style="font-style: italic; text-decoration: underline;">{{date}}</span><span
-                                class="commentcount"></span></div>
+                        <div class="talkheader">由 <span class="name" style="font-style: italic;">{{presenter}}</span>
+                            发布于 <span
+                                    style="font-style: italic; text-decoration: underline;">{{date}}</span><span
+                                    class="commentcount"></span></div>
+                        <p class="allNote" style="color: #0288D1;">标签:&nbsp;&nbsp;{{note}}</p>
                         <p style="margin: 16px">{{summary}}</p>
 
                         <div style="border: 1px #bababa dashed; padding: 16px; margin-left: 16px; margin-right: 16px;">

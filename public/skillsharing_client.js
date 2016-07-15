@@ -153,6 +153,7 @@ talkForm.addEventListener("submit", function (event) {
         method: "PUT",
         body: JSON.stringify({
             type: talkForm.elements.talkType.value,
+            note: $("#tag").getTabVals().join("，"),
             presenter: nameField.value,
             date: (new Date().Format("yyyy/MM/dd hh:mm:ss")).toString(),
             summary: talkForm.elements.summary.value
@@ -202,3 +203,5 @@ function displayTalks(talks) {
         }
     });
 }
+
+//

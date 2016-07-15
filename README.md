@@ -6,14 +6,15 @@
 2. 使用了[MUI](https://www.muicss.com/)框架。
 
 ### 已完成：
-1. 实现了数据存储到磁盘。
-2. 修改了“comment模版”和“talk模版”。
-3. 做了material design响应式UI。（MUI框架）
-4. 做了界面上的一些修改。（jQuery/html/css）
-5. 对json数据结构进行了修改，增加了帖子发表时间。（增了date字段）
-6. 统计了评论条数，用jquery分别数每个comments的子节点个数。
-7. 添加了帖子类型，可以分类查看。
-8. 管理员登入，有权限删除帖子
+1.  实现了帖子（talks）数据存储到磁盘上，服务器重启／崩溃数据可以从磁盘上文件获得。
+2. 修改了“评论comment模版”和“帖子talk模版”。
+3. 做了符合material design的UI响应式设计。（MUI框架）
+4. 界面上的大修改。（jQuery/Html/CSS）
+5. 对JSON的数据的结构进行了小修改，增加了帖子发表时间、帖子类型、标签。
+6. 统计了评论comment条数，用jQuery分别数每个comments的子节点个数。
+7. 添加了帖子类型，并可以分类查看。
+8. 管理员登入，管理员才有权限删除帖子。
+9. 老师建议：为每个帖子添加了自定义标签。
 
 ### Note：
 1. bash中进入`skillsharing`目录，然后运行`node skillsharing_server.js`命令，使服务端运行。

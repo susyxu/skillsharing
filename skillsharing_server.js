@@ -74,6 +74,7 @@ router.add("PUT", /^\/talks\/([^\/]+)$/,
                 talks[title] = {
                     title: title,
                     type: talk.type,
+                    note: talk.note,
                     presenter: talk.presenter,
                     date: talk.date,
                     summary: talk.summary,
