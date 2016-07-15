@@ -16,9 +16,13 @@
 8. 管理员登入，管理员才有权限删除帖子。
 9. 老师建议：为每个帖子添加了自定义标签。
 
-### Note：
+### 备注：
 1. bash中进入`skillsharing`目录，然后运行`node skillsharing_server.js`命令，使服务端运行。
 2. `localhost:8000` 主界面。
 3. `localhost:8000/adminLogin` 管理员登入界面。
 4. 管理员账号密码：`xushen／xs`（管理员的登入的flag是`tTc3Xq86RerCTLtq`）
+
+### 截图：
+![image](https://raw.githubusercontent.com/susyxu/skillsharing/master/screenshots/screenshot001.png)
+![image](https://raw.githubusercontent.com/susyxu/skillsharing/master/screenshots/screenshot002.png)
 
